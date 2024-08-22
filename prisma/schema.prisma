@@ -1,0 +1,44 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+model UserPreference{
+  Id  Int @id @default(autoincrement())
+  email String @unique
+  name String
+  ImageUrl String 
+  age Int
+  gender String 
+  university String
+  starting String
+  ending String
+  language String
+  major String
+  country String
+  foodPrefernce String
+  smoking String
+  drinking String
+  expenditure String
+  ambiance String
+  tidiness String
+  socializing String
+  about String
+  findmate Boolean @default(false)
+  timstamp DateTime @default(now())
+  }
+
+
+  model Survey{
+    id Int @id @default(autoincrement())
+    email String @unique 
+    UniversityExp String 
+    MajorExp String
+    CityExp String
+  }

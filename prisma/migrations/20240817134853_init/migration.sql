@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "UserPreference" ALTER COLUMN "ending" SET DATA TYPE TEXT,
+ALTER COLUMN "starting" SET DATA TYPE TEXT;
