@@ -7,6 +7,8 @@ import { DashBoardRouter } from "./Routes/DashBoard.Router";
 import { healthRouter } from "./healthCheck/healthcheck";
 import { sysRouter } from "./systemStatus/Sys.Router";
 import { surveyRouter } from "./Routes/Survey.Router";
+import { RoomRouter } from "./Routes/Room.Router";
+import { VancanyRouter } from "./Routes/Vancany.Router";
 
 
 export const app = express(); 
@@ -27,6 +29,8 @@ app.use(compression());
 // Router
 app.use("/api/v1",DashBoardRouter);
 app.use("/api/v1",surveyRouter);
+app.use("/api/v1",RoomRouter);
+app.use("/api/v1",VancanyRouter);
 app.use(healthRouter);
 app.use(sysRouter);
 

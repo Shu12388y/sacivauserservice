@@ -42,3 +42,38 @@ model UserPreference{
     MajorExp String
     CityExp String
   }
+
+model Rooms {
+  id          Int      @id @default(autoincrement())
+  email       String   @unique
+  type        String
+  unit        String
+  amenities   String
+  store       String
+  totalRent   Int
+  geolocation String
+  address     String   @unique
+  startDate   String 
+  endDate     String 
+  roomMates   String[] 
+  vacancy     Vacancy? // Optional one-to-one relationship
+  cluster     String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt()
+}
+
+model Vacancy {
+  id          Int      @id @default(autoincrement())
+  duration    String
+  vacancyType String
+  sharingType String
+  rent        Int
+  preferences String
+  moveIn      String
+  moveOut     String 
+  cluster     String
+  roomId      Int      @unique  // Ensure one-to-one by making roomId unique
+  room        Rooms    @relation(fields: [roomId], references: [id])
+  createdAt DateTime @default(now())
+  updateAt DateTime @updatedAt()
+}
